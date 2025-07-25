@@ -1,4 +1,4 @@
-# 🕵️‍♂️ Steganography and C2
+# 🕵️‍♂️ Steganography and C2 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
@@ -16,6 +16,7 @@
 
 - [🎯 Project Objective](#-project-objective)
 - [🧰 Technologies](#-technologies)
+- [🏗️ Architecture](#️-architecture)
 - [⚙️ Usage Instructions](#️-usage-instructions)
 - [🖧 Simulated C2 Communication](#-simulated-c2-communication-localhost-only)
 - [🔒 Built-in Safety Measures](#-built-in-safety-measures)
@@ -44,6 +45,23 @@ This project demonstrates two cybersecurity-related technical concepts:
 - **Environment:** Designed for local use (`127.0.0.1`) to ensure isolation and safety.
 
 ---
+
+## 🏗️ Architecture
+
+The project adopts a modular architecture, ensuring that each component has a clear and isolated responsibility:
+
+- **🎯 Client Module**:  
+  Handles the sending of messages and data to the server, embedding commands or information using steganographic techniques.
+  
+- **🖥️ Server (C2) Module**:  
+  Acts as the Command-and-Control endpoint, receiving, decoding, and processing data sent by clients.
+  
+- **🗝️ Encoding/Decoding Layer**:  
+  Provides the core steganography logic, including the encoding of messages into images/files and their decoding on the server side.
+  
+- **🛡️ Safety & Logging Layer**:  
+  Contains security mechanisms, validation, and logging to ensure the system is safe for educational purposes and prevent misuse.
+
 
 ## ⚙️ Usage Instructions
 
