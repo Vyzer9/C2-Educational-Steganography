@@ -1,12 +1,10 @@
-<<<<<<< HEAD
-from shared.secure import secure_encode
+from shared.protocol_secure import secure_encode
 from stegano.lsb import encode_lsb  
-from encoder.utils import load_image  
 
 def gerar_payload_image(command: str, key: bytes, image_base: str, image_exit: str):
     payload = secure_encode("command", command, key)   
-    encode_lsb(image_base, payload, imagem_exit)       
-=======
+    encode_lsb(image_base, payload, image_exit)       
+
 from shared.protocol_secure import secure_encode
 from stegano import lsb 
 
@@ -20,4 +18,4 @@ def gerar_payload_image(command: str, key: bytes, image_base: str, image_exit: s
         print(f"Payload escondido com sucesso em '{image_exit}'")
     except Exception as e:
         print(f"Erro ao esconder o payload: {e}")
->>>>>>> 757edb6 (Updates in shared and payload)
+
