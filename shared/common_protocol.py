@@ -3,7 +3,7 @@ import base64
 import time
 from typing import Dict, Any
 
-# Cria uma mensagem com tipo e codifica em base64
+# Creates a message with type and encodes it in base64
 def encode_message(msg_type: str, data: str) -> str:
     message = {
         "type": msg_type,
@@ -14,13 +14,13 @@ def encode_message(msg_type: str, data: str) -> str:
     return base64.b64encode(json_str.encode("utf-8")).decode("utf-8")
 
 
-# Descodifica e retorna o dicionário
+# Decodes and returns the dictionary 
 def decode_message(encoded_msg: str) -> Dict[str, Any]:
     decoded_json = base64.b64decode(encoded_msg.encode("utf-8")).decode("utf-8")
     return json.loads(decoded_json)
 
 
-# Verifica a mensagem
+# Check the message 
 def validate_message(message: Dict[str, Any]) -> bool:
     return all(k in message for k in ("type", "data", "timestamp"))
 
