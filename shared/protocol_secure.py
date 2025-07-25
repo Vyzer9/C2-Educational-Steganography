@@ -4,9 +4,9 @@ import base64
 
 def secure_encode(msg_type: str, data: str, key: bytes) -> str:
     """
-    1) Monta a mensagem (JSON) + base64 (protocol)
-    2) Criptografa com Fernet
-    3) Retorna em base64 para transporte
+    1) Assemble the message (JSON) + base64 (protocol)
+    2) Encrypt with Fernet
+    3) Returns base64 for transport
     """
     proto_b64 = encode_message(msg_type, data)          # str
     encrypted = encrypt_with_key(proto_b64, key)        # bytes
