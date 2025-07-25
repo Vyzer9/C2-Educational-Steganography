@@ -14,7 +14,7 @@ def secure_encode(msg_type: str, data: str, key: bytes) -> str:
 
 def secure_decode(token: str, key: bytes) -> dict:
     """
-    Faz o caminho inverso do secure_encode.
+    Reverse path of secure_encode.
     """
     encrypted = base64.b64decode(token.encode("utf-8")) # bytes
     proto_b64 = decrypt_with_key(encrypted, key)        # str
