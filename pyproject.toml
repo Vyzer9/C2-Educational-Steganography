@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "c2steg"
+version = "0.1.0-beta"
+description = "Educational project for Steganography and C2 communication"
+authors = [{ name="Vyzer9" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+dependencies = [
+    "cryptography",
+    "pillow"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
