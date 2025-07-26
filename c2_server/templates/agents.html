@@ -1,0 +1,6 @@
+<h2>Agentes Registrados</h2>
+<ul>
+  {% for agent in agents %}
+    <li>ID: {{ agent.id }}, IP: {{ agent.ip }}</li>
+  {% endfor %}
+</ul>

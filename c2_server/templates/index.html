@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C2 Server</title>
+
+    <!--Bootstrap Css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <!-- Static/ Style.css -->
+    <link rel="stylesheet" href="/c2_server/static/style.css">
+    <!--C2 server main JS-->
+    <link rel="stylesheet" href="./c2_server_main.js">
+
+</head>
+
+<body>
+
+    <!--NavBar-->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">C2 Server</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                </div>
+            </div>
+        </nav>
+
+
+    <!--Main-->
+        <main>
+            <h1 class="text-center mt-5 main_h1"> Welcome to C2 Server! </h1>
+        </main>
+
+
+
+    <!--Card C2-->
+            <p class="lead text-center mb-4 main_p">Welcome to your C2 Server Dashboard, your central hub for monitoring agent activity and orchestrating command and control operations.</p>
+            
+            <div class="row justify-content-center mt-5"> <div class="col-md-8 col-lg-7"> <div class="card text-center">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs" id="agentTabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="active-tab" data-bs-toggle="tab" href="#active-content" role="tab" aria-controls="active-content" aria-selected="true">Active</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="inactive-tab" data-bs-toggle="tab" href="#inactive-content" role="tab" aria-controls="inactive-content" aria-selected="false">Inactive</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="archived-tab" data-bs-toggle="tab" href="#archived-content" role="tab" aria-controls="archived-content" aria-selected="false">Archived</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="agentTabsContent">
+                                <div class="tab-pane fade show active" id="active-content" role="tabpanel" aria-labelledby="active-tab">
+                                    <h5 class="card-title">Online Agents Overview</h5>
+                                    <p class="card-text">Currently, **X agents** are active and communicating with the C2 server. Monitor their status and manage operations from here.</p>
+                                    <a href="/agents/active" class="btn btn-primary">View All Active Agents</a>
+                                </div>
+
+                                <div class="tab-pane fade" id="inactive-content" role="tabpanel" aria-labelledby="inactive-tab">
+                                    <h5 class="card-title">Inactive Agents List</h5>
+                                    <p class="card-text">There are **Y agents** that have not reported in recently. Review their last known status and check for potential issues.</p>
+                                    <a href="/agents/inactive" class="btn btn-primary">Review Inactive Agents</a>
+                                </div>
+
+                                <div class="tab-pane fade" id="archived-content" role="tabpanel" aria-labelledby="archived-tab">
+                                    <h5 class="card-title">Archived Agents</h5>
+                                    <p class="card-text">This section lists agents that are no longer operational or have been manually archived from the system.</p>
+                                    <a href="/agents/archived" class="btn btn-primary">Browse Archived Agents</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <!--Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+
+</html>
