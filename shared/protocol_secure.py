@@ -1,5 +1,5 @@
-from common_protocol import encode_message, decode_message
-from common_crypto import encrypt_with_key, decrypt_with_key
+from shared.common_protocol import encode_message, decode_message
+from shared.common_crypto import encrypt_with_key, decrypt_with_key
 import base64
 
 def secure_encode(msg_type: str, data: str, key: bytes) -> str:
