@@ -9,6 +9,7 @@ body,html {
     box-sizing: border-box; 
     position: relative; 
     z-index: 1; 
+    
 }
 
 .main_h1, .main_p, .h2_about {
@@ -21,7 +22,33 @@ body,html {
     border-radius: 0;
 }
 
-/* Parte do About no index */
+/* animação do h1 e card */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInMove 1s ease-out forwards;
+}
+
+.fade-in-delay {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInMove 1s ease-out forwards;
+  animation-delay: 0.5s; /* atraso de 0.5s para aparecer depois */
+}
+
+@keyframes fadeInMove {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* animação do About  */
 .about-card {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.05);
