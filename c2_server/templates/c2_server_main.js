@@ -1,4 +1,4 @@
-// Ativa as abas do Bootstrap in index.html
+// Ativa as abas do Bootstrap no index.html
     var triggerTabList = [].slice.call(document.querySelectorAll('#agentTabs a'))
     triggerTabList.forEach(function (triggerEl) {
         var tabTrigger = new bootstrap.Tab(triggerEl)

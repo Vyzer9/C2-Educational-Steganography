@@ -41,12 +41,11 @@
             </div>
         </nav>
 
-        <!--Main content-->
+        <!--H1 e paragrafo acima do card-->
         <h1 class="text-center mt-5 main_h1"> Welcome to C2 Server! </h1>
         <p class="lead text-center mb-4 main_p">Welcome to your C2 Server Dashboard, your central hub for monitoring agent activity and orchestrating command and control operations.</p>
 
     <!--Card C2-->
-        
             <div class="row justify-content-center mt-5"> <div class="col-md-8 col-lg-7"> <div class="card text-center">
                         <div class="card-header">
                             <ul class="nav nav-tabs card-header-tabs" id="agentTabs" role="tablist">
@@ -90,7 +89,69 @@
 
     <!--Main-->
         <main>
-            <h2 class="text-center mt-5 h2_about">About</h2>
+     <!-- AOS (Animate On Scroll) -->
+        <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+        <script>AOS.init({ duration: 800, once: true });</script>
+
+        <section id="about" class="container py-5">
+        <h2 class="text-center mb-5 h2_about" data-aos="fade-up">About</h2>
+
+        <div class="row g-4 text-center">
+            <div class="col-md-6 col-lg-3" data-aos="zoom-in">
+            <div class="about-card p-4 rounded shadow-sm">
+                <div class="icon-3d mb-3">
+                <img src="https://skillicons.dev/icons?i=docker" alt="Server" width="60">
+                </div>
+                <h4>O que é o C2 Server?</h4>
+                <p class="text-muted">Plataforma para orquestrar e monitorar agentes, executar tarefas remotas e manter visibilidade operacional.</p>
+            </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+            <div class="about-card p-4 rounded shadow-sm">
+                <div class="icon-3d mb-3">
+                <img src="https://skillicons.dev/icons?i=postgres" alt="Architecture" width="60">
+                </div>
+                <h4>Arquitetura</h4>
+                <ul class="text-muted list-unstyled">
+                <li>API REST</li>
+                <li>Banco de dados</li>
+                <li>Filas de mensagens</li>
+                </ul>
+            </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+            <div class="about-card p-4 rounded shadow-sm">
+                <div class="icon-3d mb-3">
+                <img src="https://skillicons.dev/icons?i=linux" alt="Security" width="60">
+                </div>
+                <h4>Segurança</h4>
+                <ul class="text-muted list-unstyled">
+                <li>JWT & TLS</li>
+                <li>RBAC</li>
+                <li>Auditoria completa</li>
+                </ul>
+            </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+            <div class="about-card p-4 rounded shadow-sm">
+                <div class="icon-3d mb-3">
+                <img src="https://skillicons.dev/icons?i=python" alt="Roadmap" width="60">
+                </div>
+                <h4>Roadmap</h4>
+                <ul class="text-muted list-unstyled">
+                <li>Dashboard WebSocket</li>
+                <li>Alertas customizáveis</li>
+                <li>MITRE ATT&CK</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+</section>
+
         </main>
 
     <!--Bootstrap JS-->

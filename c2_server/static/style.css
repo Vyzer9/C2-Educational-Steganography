@@ -1,24 +1,42 @@
-/* Index.html*/
+/* Body e nav bar do index */
 body,html {
-    background-image: url('./Image/Imgc2.jpg');
+    /*background-image: url('./Image/Imgc2.jpg');*/
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed; 
-
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
-
     position: relative; 
     z-index: 1; 
 }
 
 .main_h1, .main_p, .h2_about {
-    color: rgb(11, 11, 11);
+    color: rgb(2, 2, 2);
 }
 
 .navbar {
     left: 0;
     margin: 0;
     border-radius: 0;
+}
+
+/* Parte do About no index */
+.about-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.icon-3d img {
+  transition: transform 0.3s ease;
+}
+
+.about-card:hover .icon-3d img {
+  transform: rotateY(10deg) rotateX(10deg) scale(1.1);
 }
