@@ -1,6 +1,6 @@
 /* Index.html*/
 body,html {
-    background-image: url('./Image/ImgC2.jpg');
+    background-image: url('./Image/Imgc2.jpg');
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed; 
@@ -13,8 +13,8 @@ body,html {
     z-index: 1; 
 }
 
-.main_h1, .main_p {
-    color: black;
+.main_h1, .main_p, .h2_about {
+    color: rgb(11, 11, 11);
 }
 
 .navbar {
