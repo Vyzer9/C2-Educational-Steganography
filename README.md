@@ -68,7 +68,7 @@ The project adopts a modular architecture, ensuring that each component has a cl
 ### 1. Clone the repository:
 ```bash
 git clone https://github.com/Vyzer9/C2-Educational-Steganography.git
-cd Educational-C2-Steganography
+cd C2-Educational-Steganography
 ```
 ### 2. Install dependencies
 ```bash
