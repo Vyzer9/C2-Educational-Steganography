@@ -1,68 +1,191 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    /* Balanced cybersecurity theme */
+    --background: 220 15% 8%;
+    --foreground: 210 40% 95%;
+
+    --card: 220 15% 12%;
+    --card-foreground: 210 40% 95%;
+
+    --popover: 220 15% 12%;
+    --popover-foreground: 210 40% 95%;
+
+    /* Bright cyber green primary */
+    --primary: 120 100% 50%;
+    --primary-foreground: 220 15% 8%;
+
+    /* Bright electric blue secondary */
+    --secondary: 200 100% 55%;
+    --secondary-foreground: 220 15% 8%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 210 20% 70%;
+
+    --accent: 280 100% 65%;
+    --accent-foreground: 220 15% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 25%;
+    --input: 220 15% 15%;
+    --ring: 120 100% 50%;
+
+    --radius: 0.75rem;
+    
+    /* Custom cyber colors */
+    --cyber-green: 120 100% 50%;
+    --cyber-blue: 200 100% 55%;
+    --cyber-purple: 280 100% 65%;
+    --cyber-orange: 30 100% 60%;
+    --terminal-green: 120 100% 65%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--cyber-green)), hsl(var(--cyber-blue)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--cyber-blue)), hsl(var(--cyber-purple)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--cyber-purple)), hsl(var(--cyber-orange)));
+    
+    /* Shadows and glows */
+    --shadow-cyber: 0 0 30px hsl(var(--cyber-green) / 0.3);
+    --shadow-blue: 0 0 30px hsl(var(--cyber-blue) / 0.3);
+    --shadow-elegant: 0 10px 30px -10px hsl(220 15% 0% / 0.5);
+    
+    /* Animations */
+    --transition-cyber: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: all 0.4s ease-in-out;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
-  a:hover {
-    color: #747bff;
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom cyber animations and effects */
+@layer components {
+  .cyber-glow {
+    filter: drop-shadow(0 0 10px hsl(var(--cyber-green)));
+    transition: var(--transition-glow);
+  }
+  
+  .cyber-glow:hover {
+    filter: drop-shadow(0 0 20px hsl(var(--cyber-green)));
+  }
+  
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .border-gradient {
+    border-image: var(--gradient-primary);
+    border-image-slice: 1;
+  }
+  
+  .typing-animation {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--cyber-green));
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: hsl(var(--cyber-green)); }
+  }
+  
+  .cyber-icons-bg {
+    background: 
+      radial-gradient(circle at 15% 20%, hsl(var(--cyber-green) / 0.05) 0%, transparent 30%),
+      radial-gradient(circle at 85% 80%, hsl(var(--cyber-blue) / 0.05) 0%, transparent 30%),
+      radial-gradient(circle at 70% 20%, hsl(var(--cyber-purple) / 0.03) 0%, transparent 25%),
+      radial-gradient(circle at 30% 80%, hsl(var(--cyber-orange) / 0.03) 0%, transparent 25%);
+  }
+  
+  .floating-icon {
+    position: absolute;
+    opacity: 0.1;
+    animation: float-slow 20s ease-in-out infinite;
+  }
+  
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(90deg); }
+    50% { transform: translateY(-40px) rotate(180deg); }
+    75% { transform: translateY(-20px) rotate(270deg); }
   }
 }
