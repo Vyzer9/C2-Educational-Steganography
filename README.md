@@ -125,6 +125,10 @@ Unauthorized or illegal use of this code is strictly prohibited.
 
 - 🎭The C2 feature is entirely simulated and does not perform real-world operations.
 
+## 📷 Screenshot
+
+<img width="1442" height="776" alt="image" src="https://github.com/user-attachments/assets/9c667fea-dcd2-46fe-b00e-045d3fb56c6b" />
+
 ## 🤝 Contribution Guidelines
 
 Contributions are welcome, provided they align with the educational goals of the project.
