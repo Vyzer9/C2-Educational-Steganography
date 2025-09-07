@@ -1,20 +1,21 @@
-# 🕵️‍♂️ Steganography and C2 
+# 🕵️‍♂️ Steganography and C2 Tool
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPLv3-blue.svg)](LICENSE)
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 ![Platform](https://img.shields.io/badge/platform-linux%20%7C%20windows-lightgrey)
-![Status](https://img.shields.io/badge/status-educational-important)
+![Status](https://img.shields.io/badge/type-open--source--tool-success)
 
 > ⚠️ **Legal Disclaimer**  
-> This project is strictly for educational purposes, demonstrating steganography and simulated Command and Control (C2) communication in a **controlled local environment**.  
-> **Unauthorized use is strictly prohibited** under Brazilian law, including the [Brazilian Civil Rights Framework for the Internet (Law No. 12,965/2014)](https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm).  
-> The author assumes **no liability** for any misuse or illegal activity.
+> This is a **research and development tool** that demonstrates steganography and Command and Control (C2) communication techniques in a **controlled environment**.  
+> Its use is strictly intended for learning, testing, and research purposes.  
+> **Unauthorized or illegal use is prohibited** under applicable laws, including the [Brazilian Civil Rights Framework for the Internet (Law No. 12,965/2014)](https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm).  
+> The author assumes **no liability** for misuse or damages.
 
 ---
 
 ## 📌 Table of Contents
 
-- [🎯 Project Objective](#-project-objective)
+- [🎯 Objective](#-objective)
 - [🧰 Technologies](#-technologies)
 - [🏗️ Architecture](#️-architecture)
 - [⚙️ Usage Instructions](#️-usage-instructions)
@@ -28,21 +29,21 @@
 
 ---
 
-## 🎯 Project Objective
+## 🎯 Objective
 
-This project demonstrates two cybersecurity-related technical concepts:
+This project provides a **functional tool** for:
 
-- **Steganography** using LSB (Least Significant Bit) to hide messages in images.
-- **Simulated C2 (Command & Control)** communication between client and server in a sandboxed environment.
+- **Steganography** using LSB (Least Significant Bit) to embed messages in images.
+- **Simulated C2 communication**, allowing structured data flow between a local client and server.
 
 ## 🧰 Technologies
 
 - **Language:** Python 3.8+
 - **Libraries:**
   - [`Pillow`](https://pypi.org/project/Pillow/) – Image manipulation
-  - `socket` – For local TCP communication
-- **Environment:** Designed for local use (`127.0.0.1`) to ensure isolation and safety.
-- **The website** with its panel is currently being developed on 09/06/2025 with some tools/languages ​​mentioned below.
+  - `socket` – Local TCP communication
+- **Execution environment:** Fully local (`127.0.0.1`) for safety
+- **Web interface (in development):** Started on 09/06/2025
 
   [![My Skills](https://skillicons.dev/icons?i=py,bash,ts,js,vite,react,nodejs,npm,tailwind)](https://skillicons.dev)
 
@@ -50,27 +51,27 @@ This project demonstrates two cybersecurity-related technical concepts:
 
 ## 🏗️ Architecture
 
-The project adopts a modular architecture, ensuring that each component has a clear and isolated responsibility:
+The architecture is modular and extensible:
 
 - **🎯 Client Module**:  
-  Handles the sending of messages and data to the server, embedding commands or information using steganographic techniques.
-  
-- **🖥️ Server (C2) Module**:  
-  Acts as the Command-and-Control endpoint, receiving, decoding, and processing data sent by clients.
-  
-- **🗝️ Encoding/Decoding Layer**:  
-  Provides the core steganography logic, including the encoding of messages into images/files and their decoding on the server side.
-  
-- **🛡️ Safety & Logging Layer**:  
-  Contains security mechanisms, validation, and logging to ensure the system is safe for educational purposes and prevent misuse.
+  Sends steganographic payloads to the C2 server.
 
+- **🖥️ Server Module (C2)**:  
+  Receives and decodes payloads, simulating command reception.
+
+- **🗝️ Encoding/Decoding Layer**:  
+  Handles the core steganographic logic (LSB).
+
+- **🛡️ Safety & Logging Layer**:  
+  Logs key events and blocks unsafe usage.
 
 ## ⚙️ Usage Instructions
 
-### 1. Clone the repository:
+### 1. Clone the repository
 ```bash
 git clone https://github.com/Vyzer9/C2-Educational-Steganography.git
 cd C2-Educational-Steganography
+
 ```
 ### 2. Install dependencies
 ```bash
@@ -113,9 +114,9 @@ if server_ip != "127.0.0.1":
 And a legal and ethical disclaimer inside the source file:
 ```python
 """
-Educational Project - Steganography and C2 Communication
-This script is for educational and testing purposes only.
-Unauthorized or illegal use of this code is strictly prohibited.
+Legal Notice:
+This script is for lawful testing, research, or learning only.
+Any unauthorized use is prohibited.
 """
 ```
 
@@ -155,5 +156,6 @@ See the [LICENSE](./LICENSE) file for details.
 
 
 >⚠️ Final Notice:
->This project is intended for controlled, educational use only.
->Do not use this code in real systems or unauthorized environments. The author condemns any form of misuse or abuse.
+>This project is intended for research, testing, and development purposes in controlled environments only.
+>Do not use this code in production systems, unauthorized networks, or for malicious activities.
+>The author explicitly disclaims any responsibility for misuse and condemns any form of unethical or illegal usage.
