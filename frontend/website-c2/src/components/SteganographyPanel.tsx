@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Upload, Download, Lock, Unlock, FileImage, MessageSquare, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Lock, Unlock, FileImage, MessageSquare, AlertCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const SteganographyPanel = () => {
@@ -13,7 +12,6 @@ const SteganographyPanel = () => {
   const [message, setMessage] = useState('');
   const [extractedMessage, setExtractedMessage] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
-  const [processedImage, setProcessedImage] = useState<string | null>(null);
   const { toast } = useToast();
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,13 +20,13 @@ const SteganographyPanel = () => {
       if (file.type.startsWith('image/')) {
         setSelectedFile(file);
         toast({
-          title: 'Imagem carregada',
-          description: `${file.name} selecionada com sucesso.`,
+          title: 'Image uploaded',
+          description: `${file.name} selected successfully.`,
         });
       } else {
         toast({
-          title: 'Erro',
-          description: 'Por favor, selecione apenas arquivos de imagem.',
+          title: 'Error',
+          description: 'Please select only image files.',
           variant: 'destructive',
         });
       }
@@ -38,86 +36,96 @@ const SteganographyPanel = () => {
   const handleEmbed = async () => {
     if (!selectedFile || !message.trim()) {
       toast({
-        title: 'Dados incompletos',
-        description: 'Selecione uma imagem e digite uma mensagem.',
+        title: 'Incomplete data',
+        description: 'Select an image and enter a message.',
         variant: 'destructive',
       });
       return;
     }
 
     setIsProcessing(true);
-    
-    // Simula processamento de esteganografia
-    setTimeout(() => {
-      // Em uma implementação real, aqui seria feito o processamento real
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      const img = new Image();
-      
-      img.onload = () => {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx?.drawImage(img, 0, 0);
-        
-        // Simula alteração mínima nos pixels
-        const processedDataUrl = canvas.toDataURL('image/png');
-        setProcessedImage(processedDataUrl);
-        setIsProcessing(false);
-        
-        toast({
-          title: 'Mensagem inserida!',
-          description: 'A mensagem foi oculta na imagem com sucesso.',
-        });
-      };
-      
-      img.src = URL.createObjectURL(selectedFile);
-    }, 2000);
+
+    try {
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+      formData.append('message', message);
+
+      const response = await fetch('http://127.0.0.1:8000/embed/', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to embed message');
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'stego_image.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+
+      toast({
+        title: 'Success',
+        description: 'The image with the hidden message has been downloaded.',
+      });
+
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: (error as Error).message,
+        variant: 'destructive',
+      });
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
   const handleExtract = async () => {
     if (!selectedFile) {
       toast({
-        title: 'Imagem necessária',
-        description: 'Selecione uma imagem para extrair a mensagem.',
+        title: 'Image required',
+        description: 'Select an image to extract the message.',
         variant: 'destructive',
       });
       return;
     }
 
     setIsProcessing(true);
-    
-    // Simula extração de mensagem
-    setTimeout(() => {
-      // Em uma implementação real, aqui seria feita a extração real
-      const messages = [
-        'Mensagem secreta extraída com sucesso!',
-        'Este é um teste de esteganografia.',
-        'Comunicação C2 estabelecida.',
-        'Payload delivered successfully.',
-      ];
-      
-      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-      setExtractedMessage(randomMessage);
-      setIsProcessing(false);
-      
-      toast({
-        title: 'Mensagem extraída!',
-        description: 'A mensagem oculta foi recuperada.',
-      });
-    }, 1500);
-  };
 
-  const downloadProcessedImage = () => {
-    if (processedImage) {
-      const link = document.createElement('a');
-      link.href = processedImage;
-      link.download = 'steganography_processed.png';
-      link.click();
-      
-      toast({
-        title: 'Download iniciado',
-        description: 'A imagem processada está sendo baixada.',
+    try {
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+
+      const response = await fetch('http://127.0.0.1:8000/extract/', {
+        method: 'POST',
+        body: formData,
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to extract message');
+      }
+
+      const data = await response.json();
+      setExtractedMessage(data.message.data || 'No message found');
+
+      toast({
+        title: 'Message extracted!',
+        description: 'The hidden message was retrieved.',
+      });
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: (error as Error).message,
+        variant: 'destructive',
+      });
+    } finally {
+      setIsProcessing(false);
     }
   };
 
@@ -126,11 +134,11 @@ const SteganographyPanel = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-gradient">Painel de Esteganografia</span>
+            <span className="text-gradient">Steganography Panel</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Interface interativa para ocultar e extrair mensagens em imagens. 
-            Experimente as técnicas de esteganografia em tempo real.
+            Interactive interface for hiding and extracting messages in images.
+            Try steganography techniques in real time.
           </p>
         </div>
 
@@ -139,11 +147,11 @@ const SteganographyPanel = () => {
             <TabsList className="grid w-full grid-cols-2 mb-8">
               <TabsTrigger value="embed" className="flex items-center space-x-2">
                 <Lock className="h-4 w-4" />
-                <span>Ocultar Mensagem</span>
+                <span>Hide Message</span>
               </TabsTrigger>
               <TabsTrigger value="extract" className="flex items-center space-x-2">
                 <Unlock className="h-4 w-4" />
-                <span>Extrair Mensagem</span>
+                <span>Extract Message</span>
               </TabsTrigger>
             </TabsList>
 
@@ -152,17 +160,16 @@ const SteganographyPanel = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2">
                     <MessageSquare className="h-5 w-5 text-primary" />
-                    <span>Inserir Mensagem Secreta</span>
+                    <span>Insert Secret Message</span>
                   </CardTitle>
                   <CardDescription>
-                    Carregue uma imagem e digite a mensagem que deseja ocultar.
+                    Upload an image and type the message you want to hide.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  {/* File Upload */}
                   <div>
                     <label className="block text-sm font-medium mb-2">
-                      Selecionar Imagem
+                      Select Image
                     </label>
                     <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary/50 transition-colors">
                       <input
@@ -175,59 +182,38 @@ const SteganographyPanel = () => {
                       <label htmlFor="file-upload" className="cursor-pointer">
                         <FileImage className="h-12 w-12 text-muted-foreground mx-auto mb-2" />
                         <p className="text-muted-foreground">
-                          {selectedFile ? selectedFile.name : 'Clique para selecionar uma imagem'}
+                          {selectedFile ? selectedFile.name : 'Click to select an image'}
                         </p>
                       </label>
                     </div>
                   </div>
 
-                  {/* Message Input */}
                   <div>
                     <label className="block text-sm font-medium mb-2">
-                      Mensagem Secreta
+                      Secret Message
                     </label>
                     <Textarea
-                      placeholder="Digite sua mensagem secreta aqui..."
+                      placeholder="Type your secret message here..."
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       className="min-h-32"
                     />
                   </div>
 
-                  {/* Process Button */}
                   <Button
                     onClick={handleEmbed}
                     disabled={isProcessing || !selectedFile || !message.trim()}
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                   >
                     {isProcessing ? (
-                      'Processando...'
+                      'Processing...'
                     ) : (
                       <>
                         <Lock className="h-4 w-4 mr-2" />
-                        Ocultar Mensagem
+                        Hide Message
                       </>
                     )}
                   </Button>
-
-                  {/* Result */}
-                  {processedImage && (
-                    <Alert className="border-primary/50 bg-primary/5">
-                      <CheckCircle2 className="h-4 w-4 text-primary" />
-                      <AlertDescription className="flex items-center justify-between">
-                        <span>Mensagem oculta com sucesso!</span>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={downloadProcessedImage}
-                          className="ml-4"
-                        >
-                          <Download className="h-4 w-4 mr-2" />
-                          Baixar
-                        </Button>
-                      </AlertDescription>
-                    </Alert>
-                  )}
                 </CardContent>
               </Card>
             </TabsContent>
@@ -237,17 +223,16 @@ const SteganographyPanel = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2">
                     <Unlock className="h-5 w-5 text-secondary" />
-                    <span>Extrair Mensagem Oculta</span>
+                    <span>Extract Hidden Message</span>
                   </CardTitle>
                   <CardDescription>
-                    Carregue uma imagem que contenha uma mensagem oculta.
+                    Upload an image that contains a hidden message.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  {/* File Upload */}
                   <div>
                     <label className="block text-sm font-medium mb-2">
-                      Selecionar Imagem
+                      Select Image
                     </label>
                     <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-secondary/50 transition-colors">
                       <input
@@ -260,33 +245,31 @@ const SteganographyPanel = () => {
                       <label htmlFor="file-extract" className="cursor-pointer">
                         <FileImage className="h-12 w-12 text-muted-foreground mx-auto mb-2" />
                         <p className="text-muted-foreground">
-                          {selectedFile ? selectedFile.name : 'Clique para selecionar uma imagem'}
+                          {selectedFile ? selectedFile.name : 'Click to select an image'}
                         </p>
                       </label>
                     </div>
                   </div>
 
-                  {/* Extract Button */}
                   <Button
                     onClick={handleExtract}
                     disabled={isProcessing || !selectedFile}
                     className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground"
                   >
                     {isProcessing ? (
-                      'Extraindo...'
+                      'Extracting...'
                     ) : (
                       <>
                         <Unlock className="h-4 w-4 mr-2" />
-                        Extrair Mensagem
+                        Extract Message
                       </>
                     )}
                   </Button>
 
-                  {/* Extracted Message */}
                   {extractedMessage && (
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        Mensagem Extraída
+                        Extracted Message
                       </label>
                       <Card className="bg-secondary/10 border-secondary/50">
                         <CardContent className="pt-6">
@@ -302,12 +285,11 @@ const SteganographyPanel = () => {
             </TabsContent>
           </Tabs>
 
-          {/* Educational Notice */}
           <Alert className="mt-8 border-accent/50 bg-accent/5">
             <AlertCircle className="h-4 w-4 text-accent" />
             <AlertDescription>
-              <strong>Aviso Educacional:</strong> Esta ferramenta é destinada exclusivamente para fins educacionais e 
-              de pesquisa em cybersegurança. Use de forma responsável e em conformidade com as leis locais.
+              <strong>Educational Notice:</strong> This tool is intended exclusively for educational and
+              cybersecurity research purposes. Use responsibly and in accordance with local laws.
             </AlertDescription>
           </Alert>
         </div>
