@@ -21,6 +21,7 @@
 - [🖧 Simulated C2 Communication](#-simulated-c2-communication-localhost-only)
 - [🔒 Built-in Safety Measures](#-built-in-safety-measures)
 - [⚠️ Limitations](#️-limitations)
+- [📷 Screenshot](#-screenshot)
 - [🤝 Contribution Guidelines](#-contribution-guidelines)
 - [📄 License](#-license)
 - [📬 Contact](#-contact)
@@ -34,8 +35,6 @@ This project demonstrates two cybersecurity-related technical concepts:
 - **Steganography** using LSB (Least Significant Bit) to hide messages in images.
 - **Simulated C2 (Command & Control)** communication between client and server in a sandboxed environment.
 
----
-
 ## 🧰 Technologies
 
 - **Language:** Python 3.8+
@@ -43,6 +42,9 @@ This project demonstrates two cybersecurity-related technical concepts:
   - [`Pillow`](https://pypi.org/project/Pillow/) – Image manipulation
   - `socket` – For local TCP communication
 - **Environment:** Designed for local use (`127.0.0.1`) to ensure isolation and safety.
+- **The website** with its panel is currently being developed on 09/06/2025 with some tools/languages ​​mentioned below.
+
+  [![My Skills](https://skillicons.dev/icons?i=py,bash,ts,vite,react,nodejs,npm,tailwind)](https://skillicons.dev)
 
 ---
 
@@ -145,7 +147,8 @@ This project is licensed under the MIT License.
 ## 📬 Contact
 - Contact the author via [GitHub](https://github.com/Vyzer9)
 
-  <img width="361" height="407" alt="image" src="https://github.com/user-attachments/assets/bf218267-dc2d-4151-8458-dad065f2d586" />
+<img width="351" height="383" alt="image" src="https://github.com/user-attachments/assets/1c883c12-9f16-4064-a752-40ed4edee172" />
+
 
 
 
