@@ -129,16 +129,16 @@ Unauthorized or illegal use of this code is strictly prohibited.
 
 ## 📷 Screenshot
 
-<img width="1442" height="776" alt="image" src="https://github.com/user-attachments/assets/9c667fea-dcd2-46fe-b00e-045d3fb56c6b" />
+<img width="1393" height="747" alt="image" src="https://github.com/user-attachments/assets/5f536754-8680-4659-944d-feb1ec3c2d18" />
+
 
 ## 🤝 Contribution Guidelines
 
 Contributions are welcome, provided they align with the educational goals of the project.
 To contribute:
-1. Fork the repository.
 
+1. Fork the repository.
 2. Create a branch with your changes.
- 
 3. Submit a pull request with a detailed description.
 
 ## 📄 License
