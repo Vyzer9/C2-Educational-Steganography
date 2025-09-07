@@ -1,43 +1,43 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Upload, Lock, Download, MessageSquare, Shield, Eye } from 'lucide-react';
+import { Upload, Lock, Download, MessageSquare, Shield, Eye,Key,Cpu } from 'lucide-react';
 
 const HowItWorks = () => {
   const steps = [
     {
       icon: Upload,
-      title: 'Upload da Imagem',
-      description: 'Faça upload de uma imagem que servirá como host para a mensagem oculta.',
-      details: 'Suporta formatos PNG, JPG e BMP. A imagem original é preservada visualmente.',
+      title: 'Image Upload',
+      description: 'Upload an image that will serve as the host for the hidden message.',
+      details: 'Supports PNG, JPG, and BMP formats. The original image is visually preserved.',
     },
     {
       icon: MessageSquare,
-      title: 'Inserção da Mensagem',
-      description: 'Digite a mensagem secreta que deseja ocultar na imagem.',
-      details: 'Utiliza algoritmos LSB (Least Significant Bit) para máxima invisibilidade.',
+      title: 'Message Insertion',
+      description: 'Type the secret message you want to hide inside the image.',
+      details: 'Uses LSB (Least Significant Bit) algorithms for maximum invisibility.',
     },
     {
       icon: Lock,
-      title: 'Processamento',
-      description: 'A mensagem é criptografada e inserida nos pixels da imagem.',
-      details: 'Processo reversível que mantém a qualidade visual da imagem original.',
+      title: 'Processing',
+      description: 'The message is encrypted and inserted into the image pixels.',
+      details: 'A reversible process that maintains the original image’s visual quality.',
     },
     {
       icon: Eye,
-      title: 'Extração',
-      description: 'Recupere mensagens ocultas de imagens processadas.',
-      details: 'Decodificação automática revela o conteúdo secreto sem degradação.',
+      title: 'Extraction',
+      description: 'Retrieve hidden messages from processed images.',
+      details: 'Automatic decoding reveals the secret content without degradation.',
     },
     {
       icon: Shield,
-      title: 'Comunicação C2',
-      description: 'Estabeleça canais de comunicação seguros através de imagens.',
-      details: 'Ideal para estudos de cybersegurança e técnicas de comunicação discreta.',
+      title: 'C2 Communication',
+      description: 'Establish secure communication channels through images.',
+      details: 'Ideal for cybersecurity studies and covert communication techniques.',
     },
     {
       icon: Download,
-      title: 'Download Seguro',
-      description: 'Baixe as imagens processadas mantendo total privacidade.',
-      details: 'Sem armazenamento no servidor - processamento local garantido.',
+      title: 'Secure Download',
+      description: 'Download processed images while maintaining full privacy.',
+      details: 'No server storage – local processing guaranteed.',
     },
   ];
 
@@ -46,11 +46,11 @@ const HowItWorks = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-gradient">Como Funciona</span>
+            <span className="text-gradient">How It Works</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Entenda o processo completo de esteganografia e comunicação C2 
-            através de nossa interface intuitiva e educacional.
+            Understand the complete process of steganography and C2 communication
+            through our intuitive and educational interface.
           </p>
         </div>
 
@@ -84,38 +84,60 @@ const HowItWorks = () => {
           })}
         </div>
 
-        {/* Technical Details */}
-        <div className="mt-20 bg-card border border-border rounded-lg p-8 animate-fade-in">
-          <h3 className="text-2xl font-bold text-gradient mb-6 text-center">
-            Detalhes Técnicos
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-lg font-semibold text-card-foreground mb-3 flex items-center">
-                <Shield className="h-5 w-5 mr-2 text-primary" />
-                Algoritmos Utilizados
-              </h4>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• LSB (Least Significant Bit) Steganography</li>
-                <li>• AES Encryption para mensagens</li>
-                <li>• Distributed payload embedding</li>
-                <li>• Error correction coding</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-card-foreground mb-3 flex items-center">
-                <Lock className="h-5 w-5 mr-2 text-secondary" />
-                Recursos de Segurança
-              </h4>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• Processamento client-side</li>
-                <li>• Sem armazenamento de dados</li>
-                <li>• Análise de robustez visual</li>
-                <li>• Detecção de capacidade máxima</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+{/* Technical Details */}
+<div className="mt-20 bg-card border border-border rounded-lg p-8 animate-fade-in">
+  <h3 className="text-2xl font-bold text-primary mb-8 text-center">
+    Technical Details
+  </h3>
+  <div className="mx-auto inline-flex justify-center gap-16 max-w-5xl w-full">
+    <div className="flex-1 min-w-[180px]">
+      <h4 className="text-lg font-semibold flex items-center mb-4 text-card-foreground">
+        <Shield className="h-5 w-5 mr-2 text-green-500" />
+        Algorithms Used
+      </h4>
+      <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+        <li>LSB (Least Significant Bit) Steganography</li>
+        <li>AES Encryption for messages</li>
+        <li>Distributed payload embedding</li>
+        <li>Error correction coding</li>
+      </ul>
+    </div>
+    <div className="flex-1 min-w-[180px]">
+      <h4 className="text-lg font-semibold flex items-center mb-4 text-card-foreground">
+        <Lock className="h-5 w-5 mr-2 text-blue-500" />
+        Security Features
+      </h4>
+      <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+        <li>Client-side processing</li>
+        <li>No data storage</li>
+        <li>Visual robustness analysis</li>
+        <li>Maximum capacity detection</li>
+      </ul>
+    </div>
+    <div className="flex-1 min-w-[180px]">
+  <h4 className="text-lg font-semibold flex items-center mb-4 text-card-foreground">
+    <Key className="h-5 w-5 mr-2 text-purple-500" />
+    Contribution
+  </h4>
+  <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+    <li>Open source collaboration and contributions</li>
+    <li>Community-driven improvements</li>
+  </ul>
+</div>
+
+<div className="flex-1 min-w-[180px]">
+  <h4 className="text-lg font-semibold flex items-center mb-4 text-card-foreground">
+    <Cpu className="h-5 w-5 mr-2 text-yellow-500" />
+    Documentation
+  </h4>
+  <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+    <li>Comprehensive user guides</li>
+    <li>Detailed API references</li>
+  </ul>
+</div>
+
+  </div>
+</div>
       </div>
     </section>
   );

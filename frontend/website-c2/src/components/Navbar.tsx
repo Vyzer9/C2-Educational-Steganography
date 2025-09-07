@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Shield, Github, Terminal } from 'lucide-react';
+import { Menu, X, Shield, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
@@ -17,44 +17,55 @@ const Navbar = () => {
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+
+          {/* Left - Logo */}
           <div className="flex items-center space-x-2">
             <Shield className="h-8 w-8 text-primary cyber-glow" />
             <span className="text-xl font-bold text-gradient">SteganoC2</span>
           </div>
 
-          {/* Desktop Menu */}
+          {/* Center - Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection('home')}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Início
-            </button>
-            <button
-              onClick={() => scrollToSection('how-it-works')}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Como Funciona
-            </button>
-            <button
-              onClick={() => scrollToSection('panel')}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Painel
-            </button>
+            {[
+              { id: 'home', label: 'Home' },
+              { id: 'how-it-works', label: 'About' },
+              { id: 'panel', label: 'Panel' }
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="relative text-foreground transition-all duration-200 hover:text-primary group"
+              >
+                <span className="group-hover:border-b-2 group-hover:border-primary pb-1 transition-all duration-200">
+                  {item.label}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          {/* Right - Buttons */}
+          <div className="hidden md:flex items-center space-x-3">
             <Button
               variant="outline"
               size="sm"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200"
               onClick={() => window.open('https://github.com/vyzer9/C2-Educational-Steganography', '_blank')}
             >
               <Github className="h-4 w-4 mr-2" />
               GitHub
             </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200"
+              onClick={() => window.open('https://www.linkedin.com/in/seu-usuario', '_blank')}
+            >
+              <Linkedin className="h-4 w-4 mr-2" />
+              LinkedIn
+            </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Toggle Button */}
           <div className="md:hidden">
             <Button
               variant="ghost"
@@ -71,32 +82,38 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden pb-4 animate-fade-in">
             <div className="flex flex-col space-y-3">
-              <button
-                onClick={() => scrollToSection('home')}
-                className="text-left text-foreground hover:text-primary transition-colors py-2"
-              >
-                Início
-              </button>
-              <button
-                onClick={() => scrollToSection('how-it-works')}
-                className="text-left text-foreground hover:text-primary transition-colors py-2"
-              >
-                Como Funciona
-              </button>
-              <button
-                onClick={() => scrollToSection('panel')}
-                className="text-left text-foreground hover:text-primary transition-colors py-2"
-              >
-                Painel
-              </button>
+              {[
+                { id: 'home', label: 'Home' },
+                { id: 'how-it-works', label: 'About' },
+                { id: 'panel', label: 'Panel' }
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-left text-foreground hover:text-primary transition-colors py-2"
+                >
+                  {item.label}
+                </button>
+              ))}
+
               <Button
                 variant="outline"
                 size="sm"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-fit mt-2"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-fit"
                 onClick={() => window.open('https://github.com/vyzer9/C2-Educational-Steganography', '_blank')}
               >
                 <Github className="h-4 w-4 mr-2" />
                 GitHub
+              </Button>
+
+              <Button
+                variant="outline"
+                size="sm"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-fit"
+                onClick={() => window.open('https://www.linkedin.com/in/seu-usuario', '_blank')}
+              >
+                <Linkedin className="h-4 w-4 mr-2" />
+                LinkedIn
               </Button>
             </div>
           </div>
