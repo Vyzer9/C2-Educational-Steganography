@@ -44,7 +44,7 @@ This project demonstrates two cybersecurity-related technical concepts:
 - **Environment:** Designed for local use (`127.0.0.1`) to ensure isolation and safety.
 - **The website** with its panel is currently being developed on 09/06/2025 with some tools/languages ​​mentioned below.
 
-  [![My Skills](https://skillicons.dev/icons?i=py,bash,ts,vite,react,nodejs,npm,tailwind)](https://skillicons.dev)
+  [![My Skills](https://skillicons.dev/icons?i=py,bash,ts,js,vite,react,nodejs,npm,tailwind)](https://skillicons.dev)
 
 ---
 
