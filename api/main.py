@@ -8,7 +8,7 @@ app = FastAPI()
 # Configuração do CORS - permitir o frontend que roda em localhost:8080 acessar a API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8080"],  # coloque aqui a URL do seu frontend
+    allow_origins=["https://c2-steganography-phi.vercel.app/"],  # coloque aqui a URL do seu frontend
     allow_credentials=True,
     allow_methods=["*"],  # permite todos os métodos (GET, POST, etc)
     allow_headers=["*"],  # permite todos os headers
