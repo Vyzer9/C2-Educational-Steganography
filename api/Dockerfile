@@ -5,7 +5,7 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # Copia apenas os arquivos da API
-COPY ./api /app/api
+COPY . /app/api
 COPY requirements.txt .
 
 # Instala dependências
