@@ -43,7 +43,7 @@ This project provides a **functional tool** for:
 - **Execution environment:** Fully local (`127.0.0.1`) for safety
 - **Web interface (in development):** Started on 09/06/2025
 
-  [![My Skills](https://skillicons.dev/icons?i=py,bash,ts,js,vite,react,nodejs,npm,tailwind)](https://skillicons.dev)
+  [![My Skills](https://skillicons.dev/icons?i=py,bash,ts,js,vite,react,nodejs,npm,tailwind,docker,vercel)](https://skillicons.dev)
 
 ---
 
