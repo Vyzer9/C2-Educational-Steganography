@@ -12,11 +12,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copia tudo pro container
 COPY . .
 
-# Torna possível importar `api.*`
+# Torna possível importar módulos da raiz /app
 ENV PYTHONPATH=/app
 
 # Exponha a porta usada pelo Uvicorn
 EXPOSE 8000
 
-# Roda a API via uvicorn apontando pro arquivo certo
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Roda a API via uvicorn apontando para main.py direto
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
