@@ -19,8 +19,6 @@
 - [🧰 Technologies](#-technologies)
 - [🏗️ Architecture](#️-architecture)
 - [⚙️ Usage Instructions](#️-usage-instructions)
-- [🖧 Simulated C2 Communication](#-simulated-c2-communication-localhost-only)
-- [🔒 Built-in Safety Measures](#-built-in-safety-measures)
 - [⚠️ Limitations](#️-limitations)
 - [📷 Screenshot](#-screenshot)
 - [🤝 Contribution Guidelines](#-contribution-guidelines)
@@ -67,80 +65,61 @@ The architecture is modular and extensible:
 
 ## ⚙️ Usage Instructions
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/Vyzer9/C2-Educational-Steganography.git
-cd C2-Educational-Steganography
+### Step 1: Fork the repository on GitHub
+You need to fork the project repository to your own GitHub account to use the steganography panel.
 
-```
-### 2. Install dependencies
+### Step 3: Activate the Python virtual environment
+Create and activate the virtual environment (venv):
 ```bash
-pip install pillow
+python -m venv venv
+source venv/bin/activate   # On Windows use `venv\Scripts\activate`
 ```
-### 3. Steganography: Encode/Decode messages
-To encode a message into an image:
+### Step 4: Install dependencies
 ```bash
-python src/stego_c2.py encode input.png "Test message" output.png
+pip install -r requirements.txt
 ```
-To decode a message from an image:
+### Step 5: Run the backend server locally
 ```bash
-python src/stego_c2.py decode output.png
+uvicorn api.main:app --reload
 ```
-(Optional) See help:
-```bash
-python src/stego_c2.py --help
-```
+### Step 6: Use the Steganography Panel
 
-## 🖧 Simulated C2 Communication (Localhost Only)
-### 1. Start the server:
-```bash
-python src/stego_c2.py server
-```
-### 2. Start the client using the encoded image:
-```bash
-python src/stego_c2.py client output.png
-```
->⚠️ Important:
->The client-server communication is restricted to 127.0.0.1:9999 and should never be modified to run over the public internet. This is a local simulation only.
+<img width="1909" height="935" alt="image" src="https://github.com/user-attachments/assets/dcca7d7d-c3bf-46d1-b058-16120e2958e7" />
 
-## 🔒 Built-in Safety Measures
-
-To prevent accidental misuse, the code includes protective logic:
-```python
-if server_ip != "127.0.0.1":
-    print("C2 server is restricted to local testing only.")
-    exit(1)
-```
-And a legal and ethical disclaimer inside the source file:
-```python
-"""
-Legal Notice:
-This script is for lawful testing, research, or learning only.
-Any unauthorized use is prohibited.
-"""
-```
 
 ## ⚠️ Limitations
 
-- 📏Message size is limited by the resolution of the input image.
+- 📏 Message size is limited by the resolution of the input image.
 
-- 🔓No encryption is used; the message can be detected with forensic techniques.
+- 🔓 No encryption is used; the message can be detected with forensic techniques.
 
-- 🎭The C2 feature is entirely simulated and does not perform real-world operations.
+- 🎭 The C2 feature is entirely simulated and does not perform real-world operations.
+
+- ⚙️ To use the steganography panel, you need to activate the virtual environment (venv) in the repository and run the backend API server locally before interacting with the site.
+
 
 ## 📷 Screenshot
 
+### Diagram
+
 <img width="1393" height="747" alt="image" src="https://github.com/user-attachments/assets/5f536754-8680-4659-944d-feb1ec3c2d18" />
 
+### WebSite
+
+<img width="1909" height="940" alt="image" src="https://github.com/user-attachments/assets/e12bb8ac-55b4-46df-ae48-9d40582184d4" />
+<img width="1909" height="940" alt="image" src="https://github.com/user-attachments/assets/020acfb3-ec0b-4060-adc1-43aaa018f976" />
+<img width="1909" height="940" alt="image" src="https://github.com/user-attachments/assets/f17111ad-7082-4e11-9196-e1bd4e3c07cb" />
 
 ## 🤝 Contribution Guidelines
 
-Contributions are welcome, provided they align with the educational goals of the project.
+Contributions are welcome, provided they align with the educational goals of the project.  
+If you find bugs, have ideas for improvements, or want to add features, feel free to contribute via pull requests.
+
 To contribute:
 
-1. Fork the repository.
-2. Create a branch with your changes.
-3. Submit a pull request with a detailed description.
+1. Fork the repository.  
+2. Create a branch with your changes.  
+3. Submit a pull request with a detailed description of your changes.
 
 ## 📄 License
 This project is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).  
