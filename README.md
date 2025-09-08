@@ -16,12 +16,14 @@
 ## 📌 Table of Contents
 
 - [🎯 Objective](#-objective)
+- [🌐 Website](#-website)
 - [🧰 Technologies](#-technologies)
 - [🏗️ Architecture](#️-architecture)
 - [⚙️ Usage Instructions](#️-usage-instructions)
 - [⚠️ Limitations](#️-limitations)
-- [📷 Screenshot](#-screenshot)
+- [📜 Tutorial](#-tutorial)
 - [🤝 Contribution Guidelines](#-contribution-guidelines)
+- [📷 Screenshot](#-general-screenshot)
 - [📄 License](#-license)
 - [📬 Contact](#-contact)
 
@@ -33,6 +35,11 @@ This project provides a **functional tool** for:
 
 - **Steganography** using LSB (Least Significant Bit) to embed messages in images.
 - **Simulated C2 communication**, allowing structured data flow between a local client and server.
+
+## 🌐 Website
+
+Visit the live project at:  
+🔗 [https://peer-crypt.vercel.app](https://c2-steganography-phi.vercel.app/)
 
 ## 🧰 Technologies
 
@@ -82,33 +89,70 @@ pip install -r requirements.txt
 ```bash
 uvicorn api.main:app --reload
 ```
-### Step 5: Use the Steganography Panel
+### Step 5: Use the Steganography Panel in the WebSite
 
 <img width="1909" height="935" alt="image" src="https://github.com/user-attachments/assets/dcca7d7d-c3bf-46d1-b058-16120e2958e7" />
 
 
 ## ⚠️ Limitations
 
-- 📏 Message size is limited by the resolution of the input image.
+- 📏 The message size is limited by the input image resolution.
 
-- 🔓 No encryption is used; the message can be detected with forensic techniques.
+- 🎭 The C2 feature is fully simulated and does not perform real-world operations.
 
-- 🎭 The C2 feature is entirely simulated and does not perform real-world operations.
+- ⚙️ To use the steganography dashboard, you need to activate the virtual environment (venv) in the repository and run the backend API server locally before interacting with the website.
 
-- ⚙️ To use the steganography panel, you need to activate the virtual environment (venv) in the repository and run the backend API server locally before interacting with the site.
+---
+  
+## 📜 Tutorial
+I will be showing here a tutorial on how to use the tool efficiently, remembering that at the moment 09/08/2025 the tool runs on the website but with its API connected manually, which in itself is already a great advance compared to the beta version 0.1.0 which did not even have the website.
+
+### 1 Step.  Fork
+First we will Fork the repository to clone it and run some processes.
+
+<img width="1584" height="750" alt="image" src="https://github.com/user-attachments/assets/93c94574-1c13-4c22-8647-0ff4197bcede" />
+
+### 2 Step. Folders and Files (Important) ⚠️
+When you enter the project, you'll see a certain folder structure. Currently, the site still doesn't run without this user dependency on using the tool without manually starting the API. So, you'll just enter the terminal instead of using any of the folders.
+
+<img width="362" height="548" alt="image" src="https://github.com/user-attachments/assets/f92ff01a-0637-4233-a2db-5f35682cea7a" />
+
+### 3 Step. Terminal
+Entering the terminal, we will start VENV:
+```bash
+python -m venv venv
+source venv/bin/activate   # On Windows use `venv\Scripts\activate`
+```
+
+After that we will add the packages that are in the tool's requirement using the command:
+```bash
+pip install -r requirements.txt
+```
+
+Finally, we will activate the API with the command:
+```bash
+uvicorn api.main:app --reload
+```
+
+<img width="1580" height="448" alt="image" src="https://github.com/user-attachments/assets/e377e194-cbca-4186-a409-5a4574b22f75" />
 
 
-## 📷 Screenshot
+We will see the Link and when we click we will see the API online. Remembering that it is not mandatory to enter the link to see the API status, but for good practice it is good to see it to have confirmation.
 
-### Diagram
+<img width="347" height="155" alt="image" src="https://github.com/user-attachments/assets/1dd5d40c-aad2-486e-8f07-b99a03d4ba59" />
 
-<img width="1393" height="747" alt="image" src="https://github.com/user-attachments/assets/5f536754-8680-4659-944d-feb1ec3c2d18" />
 
-### WebSite
+### Step 4. WebSite 
+Finally, you will enter the website that is available in the repository (Without closing your IDE and your API page) and scrolling down you will reach the panel where we have the options to inject information and extract information.
+First, let's start with the process of injecting information into the image. I'll use one as an example and inform you of the content.
 
-<img width="1909" height="940" alt="image" src="https://github.com/user-attachments/assets/e12bb8ac-55b4-46df-ae48-9d40582184d4" />
-<img width="1909" height="940" alt="image" src="https://github.com/user-attachments/assets/020acfb3-ec0b-4060-adc1-43aaa018f976" />
-<img width="1909" height="940" alt="image" src="https://github.com/user-attachments/assets/f17111ad-7082-4e11-9196-e1bd4e3c07cb" />
+<img width="1468" height="769" alt="image" src="https://github.com/user-attachments/assets/731df248-582f-4422-975d-6116445de82d" />
+
+see that we automatically receive a file with a name, when clicking it we will see that the photo is the same, it seems funny but after all the information is hidden in it. Now let's do the opposite process
+
+<img width="1468" height="769" alt="image" src="https://github.com/user-attachments/assets/49fcaddc-4680-4800-a276-176570f89d39" />
+
+Congratulations, you did the steganography process correctly. 🎊🎉🎉🎉🎉
 
 ## 🤝 Contribution Guidelines
 
@@ -120,6 +164,18 @@ To contribute:
 1. Fork the repository.  
 2. Create a branch with your changes.  
 3. Submit a pull request with a detailed description of your changes.
+
+## 📷 General Screenshot
+
+### Diagram
+
+<img width="1393" height="747" alt="image" src="https://github.com/user-attachments/assets/5f536754-8680-4659-944d-feb1ec3c2d18" />
+
+### WebSite
+
+<img width="1909" height="940" alt="image" src="https://github.com/user-attachments/assets/e12bb8ac-55b4-46df-ae48-9d40582184d4" />
+<img width="1909" height="940" alt="image" src="https://github.com/user-attachments/assets/020acfb3-ec0b-4060-adc1-43aaa018f976" />
+<img width="1909" height="940" alt="image" src="https://github.com/user-attachments/assets/f17111ad-7082-4e11-9196-e1bd4e3c07cb" />
 
 ## 📄 License
 This project is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).  
