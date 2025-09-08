@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .routes import embed, extract
+from api.routes import embed, extract
+
 
 
 app = FastAPI()

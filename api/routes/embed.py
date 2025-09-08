@@ -1,8 +1,7 @@
-# api/routes/embed.py
+# embed_router.py
 from fastapi import APIRouter, UploadFile, Form
 from fastapi.responses import FileResponse
-from ..services.embed_service import embed_payload_to_image
-
+from api.services.embed_service import embed_payload_to_image
 
 router = APIRouter()
 

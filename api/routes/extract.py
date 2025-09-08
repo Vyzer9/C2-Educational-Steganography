@@ -1,6 +1,7 @@
 # api/routes/extract.py
 from fastapi import APIRouter, UploadFile
-from ..services.extract_service import extract_message_from_image
+from api.services.extract_service import extract_message_from_image
+
 
 
 
