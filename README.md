@@ -68,21 +68,21 @@ The architecture is modular and extensible:
 ### Step 1: Fork the repository on GitHub
 You need to fork the project repository to your own GitHub account to use the steganography panel.
 
-### Step 3: Activate the Python virtual environment
+### Step 2: Activate the Python virtual environment
 Create and activate the virtual environment (venv):
 ```bash
 python -m venv venv
 source venv/bin/activate   # On Windows use `venv\Scripts\activate`
 ```
-### Step 4: Install dependencies
+### Step 3: Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
-### Step 5: Run the backend server locally
+### Step 4: Run the backend server locally
 ```bash
 uvicorn api.main:app --reload
 ```
-### Step 6: Use the Steganography Panel
+### Step 5: Use the Steganography Panel
 
 <img width="1909" height="935" alt="image" src="https://github.com/user-attachments/assets/dcca7d7d-c3bf-46d1-b058-16120e2958e7" />
 
