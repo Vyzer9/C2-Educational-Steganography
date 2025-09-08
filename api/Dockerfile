@@ -18,5 +18,5 @@ ENV PYTHONPATH="/app"
 # Expõe a porta da aplicação
 EXPOSE 8000
 
-# Comando para iniciar a API
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Comando para iniciar a API, apontando para api.main:app
+CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
