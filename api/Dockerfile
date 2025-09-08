@@ -1,22 +1,19 @@
 FROM python:3.10-slim
 
-# Define o diretório de trabalho como /app
-WORKDIR /app
+# Define o diretório de trabalho dentro do container como /app/api
+WORKDIR /app/api
 
-# Copia os arquivos necessários
-COPY requirements.txt .
+# Copia o requirements.txt para o diretório pai (porque o WORKDIR mudou)
+COPY requirements.txt ../
 
 # Instala as dependências
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r ../requirements.txt
 
-# Copia tudo pro container
+# Copia todos os arquivos para dentro do container (incluindo a pasta api)
 COPY . .
-
-# Torna possível importar módulos da raiz /app
-ENV PYTHONPATH=/app
 
 # Exponha a porta usada pelo Uvicorn
 EXPOSE 8000
 
-# Roda a API via uvicorn apontando para main.py direto
+# Comando para rodar a API, apontando para main.py dentro de api
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
