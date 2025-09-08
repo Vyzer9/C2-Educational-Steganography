@@ -1,8 +1,8 @@
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import HowItWorks from '../components/HowItWorks';
-import SteganographyPanel from '../components/SteganographyPanel';
-import Footer from '../components/Footer';
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import HowItWorks from '@/components/HowItWorks';
+import SteganographyPanel from '@/components/SteganographyPanel';
+import Footer from '@/components/Footer';
 import Start from '@/components/Start';
 
 const Index = () => {
