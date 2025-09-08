@@ -1,22 +1,22 @@
 FROM python:3.10-slim
 
-# 1. Define a pasta de trabalho como /app/api
+# Define o diretório de trabalho como /app
 WORKDIR /app
 
-# 2. Copia os arquivos
+# Copia os arquivos necessários
 COPY requirements.txt .
 
-# 3. Instala as dependências
+# Instala as dependências
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 4. Copia todo o projeto
+# Copia tudo pro container
 COPY . .
 
-# 5. Define o PYTHONPATH como /app (pra achar a pasta api/)
+# Torna possível importar `api.*`
 ENV PYTHONPATH=/app
 
-# 6. Expõe a porta
+# Exponha a porta usada pelo Uvicorn
 EXPOSE 8000
 
-# 7. Executa a API
+# Roda a API via uvicorn apontando pro arquivo certo
 CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
