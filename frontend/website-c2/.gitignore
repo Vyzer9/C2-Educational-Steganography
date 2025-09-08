@@ -7,10 +7,15 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependências e build
 node_modules
 dist
 dist-ssr
 *.local
+
+# Pastas de lib na raiz do projeto (mas NÃO dentro de src)
+# Corrigido para ignorar só a lib na raiz, não a src/lib
+/lib/
 
 # Editor directories and files
 .vscode/*
