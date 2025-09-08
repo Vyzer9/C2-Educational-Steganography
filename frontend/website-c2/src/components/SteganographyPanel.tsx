@@ -285,13 +285,13 @@ const SteganographyPanel = () => {
             </TabsContent>
           </Tabs>
 
-          <Alert className="mt-8 border-accent/50 bg-accent/5">
-            <AlertCircle className="h-4 w-4 text-accent" />
-            <AlertDescription>
-              <strong>Educational Notice:</strong> This tool is intended exclusively for educational and
-              cybersecurity research purposes. Use responsibly and in accordance with local laws.
-            </AlertDescription>
-          </Alert>
+            <Alert className="mt-8 border-accent/50 bg-accent/5">
+              <AlertCircle className="h-4 w-4 text-accent" />
+              <AlertDescription>
+                <strong>Global Tool Notice:</strong> This is a globally accessible steganography tool provided under an open-source license. Use it responsibly in compliance with international and local laws.
+              </AlertDescription>
+            </Alert>
+
         </div>
       </div>
     </section>

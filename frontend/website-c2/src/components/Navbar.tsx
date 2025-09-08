@@ -29,7 +29,8 @@ const Navbar = () => {
             {[
               { id: 'home', label: 'Home' },
               { id: 'how-it-works', label: 'About' },
-              { id: 'panel', label: 'Panel' }
+              { id: 'panel', label: 'Panel' },
+              { id: 'start', label: 'Start' }
             ].map((item) => (
               <button
                 key={item.id}
@@ -58,7 +59,7 @@ const Navbar = () => {
               variant="outline"
               size="sm"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200"
-              onClick={() => window.open('https://www.linkedin.com/in/seu-usuario', '_blank')}
+              onClick={() => window.open('https://www.linkedin.com/in/sam-richard-a96503352/', '_blank')}
             >
               <Linkedin className="h-4 w-4 mr-2" />
               LinkedIn

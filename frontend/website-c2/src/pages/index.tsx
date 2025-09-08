@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import HowItWorks from '../components/HowItWorks';
 import SteganographyPanel from '../components/SteganographyPanel';
 import Footer from '../components/Footer';
+import Start from '@/components/Start';
 
 const Index = () => {
   return (
@@ -11,6 +12,7 @@ const Index = () => {
       <main>
         <Hero />
         <HowItWorks />
+        <Start />
         <SteganographyPanel />
       </main>
       <Footer />

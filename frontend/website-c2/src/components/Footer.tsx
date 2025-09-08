@@ -13,9 +13,9 @@ const Footer = () => {
               <span className="text-2xl font-bold text-gradient">SteganoC2</span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Ferramenta educacional avançada para técnicas de esteganografia e 
-              comunicação C2 em ambiente controlado. Desenvolvida para estudos 
-              de cybersegurança.
+              Advanced educational tool for steganography techniques and 
+              C2 communication in a controlled environment. Developed for 
+              cybersecurity studies.
             </p>
             <div className="flex space-x-4">
               <Button
@@ -33,7 +33,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold text-card-foreground mb-4">
-              Links Rápidos
+              Quick Links
             </h3>
             <ul className="space-y-2">
               <li>
@@ -41,7 +41,7 @@ const Footer = () => {
                   onClick={() => document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Início
+                  Home
                 </button>
               </li>
               <li>
@@ -49,7 +49,7 @@ const Footer = () => {
                   onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Como Funciona
+                  How It Works
                 </button>
               </li>
               <li>
@@ -57,7 +57,7 @@ const Footer = () => {
                   onClick={() => document.getElementById('panel')?.scrollIntoView({ behavior: 'smooth' })}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Painel
+                  Panel
                 </button>
               </li>
             </ul>
@@ -66,7 +66,7 @@ const Footer = () => {
           {/* Technical Info */}
           <div>
             <h3 className="text-lg font-semibold text-card-foreground mb-4">
-              Tecnologias
+              Technologies
             </h3>
             <ul className="space-y-2 text-muted-foreground">
               <li className="flex items-center">
@@ -88,15 +88,15 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-muted-foreground text-sm mb-4 md:mb-0">
-            © 2024 vyzer9. Desenvolvido com{' '}
+            © 2024 vyzer9. Built with{' '}
             <Heart className="inline h-4 w-4 text-primary mx-1" />
-            para educação em cybersegurança.
+            for cybersecurity education.
           </div>
           
           <div className="text-muted-foreground text-sm">
             <span className="inline-flex items-center">
               <Terminal className="h-4 w-4 mr-1" />
-              Apenas para fins educacionais
+              For educational purposes only
             </span>
           </div>
         </div>
