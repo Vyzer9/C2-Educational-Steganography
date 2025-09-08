@@ -40,6 +40,6 @@
     "vite": "^7.1.4"
   },
   "scripts": {
-    "build": "vite build"
+    "build": "cd frontend/website-c2 && npm run build"
   }
 }
