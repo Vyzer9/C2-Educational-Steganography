@@ -2,8 +2,9 @@
   "devDependencies": {
     "concurrently": "^9.2.1"
   },
-  "scripts": {
-  "build": "cd frontend/website-c2 && npm run build"
+"scripts": {
+  "build": "cd frontend/website-c2 && npm install && npm run build"
 }
+
 
 }
