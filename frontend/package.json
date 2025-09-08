@@ -40,7 +40,6 @@
     "vite": "^7.1.4"
   },
   "scripts": {
-  "build": "vite build"
-}
-
+    "build": "vite build"
+  }
 }
