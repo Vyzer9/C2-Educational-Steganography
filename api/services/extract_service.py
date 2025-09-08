@@ -1,9 +1,8 @@
-# api/services/extract_service.py
+# extract_service.py
 from payload_encoder.decoder import extract_payload_image
 from pathlib import Path
 import tempfile
-
-key = b'4NgK9NVbz2XNukKbptjy2taiJGC2Un9b8IWqsCcTIUA='  # mesma chave
+from config import key  # Importa da mesma fonte
 
 async def extract_message_from_image(file) -> str:
     temp_dir = tempfile.mkdtemp()

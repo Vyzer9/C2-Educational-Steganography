@@ -31,4 +31,4 @@ async def embed_payload_to_image(file, message: str) -> str:
     # Salva a imagem modificada
     secret_img.save(output_path)
 
-    return str(output_path)  # ← retorna o caminho como string
+    return str(output_path)  # ← retorna o caminho como string  
