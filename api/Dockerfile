@@ -4,7 +4,7 @@ FROM python:3.10-slim
 # Define o diretório de trabalho
 WORKDIR /app
 
-# Copia somente os arquivos necessários para a API
+# Copia apenas os arquivos da API
 COPY ./api /app/api
 COPY requirements.txt .
 
